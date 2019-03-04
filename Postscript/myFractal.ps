@@ -1,0 +1,99 @@
+/angle 30  def
+/len 40  def
+/len2 10 def
+/len3 25 def
+
+/F
+{
+newpath
+0 0 moveto
+len 0 lineto
+stroke
+len 0 translate
+} def
+
+/F2
+{
+newpath
+0 0 moveto
+len2 0 lineto
+stroke
+len2 0 translate
+} def
+
+/F3
+{
+newpath
+0 0 moveto
+len3 0 lineto
+stroke
+len3 0 translate
+} def
+
+/L
+{
+angle rotate
+} def
+
+/R
+{
+angle neg rotate
+} def
+
+/Push{ gsave }def
+
+/Pop{ grestore } def
+
+
+%first fractal type - Binary Tree
+/X
+{
+1 sub
+/n exch def
+n 0 gt
+{
+n n F Push L X Pop R X
+}
+if
+} def
+
+
+% Second fractal image - Honeycomb
+/Y{
+1 sub
+/n exch def
+n 0 gt
+{
+n n F2 Push L L Y Pop R R Y
+}
+if
+} def
+
+% Third fractal image - ????
+/Z{
+1 sub
+/n exch def
+n 0 gt
+{
+n n F3 Push L Z Pop R R R R Z
+}
+if
+} def
+
+
+
+%Top image
+300 675 translate
+6 X
+
+%middle image
+100 100 translate
+15 Y
+
+%Bottom image
+-250 100 translate
+11 Z
+
+
+
+showpage
